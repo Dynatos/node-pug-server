@@ -1,6 +1,6 @@
 const rsurl = 'https://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=';
-const image1 = document.querySelector('.image1');
-console.log(image1);
+let firstImage = document.getElementsByClassName('an-image');
+console.log(firstImage);
 
 function buttonClick() {
   alert(rsurl);
@@ -12,7 +12,6 @@ function buttonClick1() {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
-      image1.src = data.fullURL;
+      firstImage[0].src = data.fullURL;
     })
 }
