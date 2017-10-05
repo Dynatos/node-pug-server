@@ -5,6 +5,11 @@ const app = express();
 // Variable storage area; rsurl + any_valid_ID is the API we make requests to
 const rsurl = 'https://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=';
 const rsRegEx = /com\/m=itemdb_oldschool\/(\d+)_obj_sprite\.gif/;
+// Another way to assign locals, see app.get('/', ...
+// const localDataObj = {
+//   projectName: 'Clickable',
+//   someText: 'OurTexts'
+// };
 
 // Function definition area; getTimestamp is where we make a request to the runescape API for item data
 function getTimestamp(cb) {
@@ -39,6 +44,9 @@ app.get('/', function(req, res){
   // Sets the variable someText in our Pug files to equal the string 'OurText'
   res.locals.someText = 'OurText';
   
+  // Another way to do the above
+  // res.locals = localDataObj;
+  
   // An object can be handed as an arg to res.render to set variables alternatively to the above locals method
   res.render('index', {
     // someText: 'asdf'
@@ -55,11 +63,13 @@ app.get('/rs', (req, res) => {
       return;
     }
     res.locals.someText = iconURL;
+    res.locals.projectName = 'Runescape Image Grabber';
     res.render('index');
   })
 });
 
-// Creates an API response out of response data from rs API
+// Makes a request to the rs API and renders a response in JSON format. This page isn't gone to directly by users
+// it is only meant to be referenced/accessed by components of the site to utilize the data returned from the rs api
 app.get('/rsapi/get-icon', (req, res) => {
   getTimestamp((err, iconURL) => {
     if (err) {

@@ -3,15 +3,15 @@ extends layout.pug
 block content
   .jumbotron
     .container
-      h1 Home Page
+      h1 Isn't this a nice page?
       |
-      img(src= someText)
-      |
-      img.an-image(src)
-      |
-      p= someText
-      |
-      p
-        a.btn.btn-primary.btn-lg(id='learn-more', href='#', role='button' onClick='buttonClick()') Learn more &raquo;
-        a.btn.btn-primary.btn-lg(id='learn-more-2', href='#', role='button' onClick='buttonClick1()') Learn more &raquo;
+      section
+        form.formWithImageID#formWithImageID
+          input.imageToGet#imageToGet(type='number', placeholder='ID')
+          |
+          button.btn.btn-primary.btn-lg(type='submit') Get image by ID &raquo;
+        |
+        section.container.imageContainer
+        |
+        br
 

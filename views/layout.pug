@@ -5,7 +5,6 @@ html(xmlns="http://www.w3.org/1999/xhtml")
   head
     link(rel='stylesheet', type='text/css', href='/static/style.css')
     link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-    script(src='/static/index.js')
     meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title
@@ -24,7 +23,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
             |             
             span.icon-bar
           |           
-          a.navbar-brand(href='#') Project name
+          a.navbar-brand(href='#')= projectName
         |         
         #navbar.navbar-collapse.collapse
           form.navbar-form.navbar-right
@@ -40,5 +39,6 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       br
       br
       footer
-        p &copy; 2017 Dope Shit, Inc.
+        p &copy; 2017 Clickable Buttons & Stuff, Inc.
 
+script(src='/static/index.js')
